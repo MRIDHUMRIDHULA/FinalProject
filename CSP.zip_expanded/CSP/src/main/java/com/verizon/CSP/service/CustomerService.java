@@ -35,9 +35,10 @@ private final CustomerRepository custrepo;
 	public Customer updateCustomer(Integer id,Customer customer) {
 		Customer existingCustomer = custrepo.findById(id).orElse(null);
 		if (existingCustomer != null) {
-			existingCustomer.setCust_name(customer.getCust_name());
-			existingCustomer.setOrder_id(customer.getOrder_id());
-			existingCustomer.setCust_id(customer.getCust_id());
+			existingCustomer.setCustomer_id(customer.getCustomer_id());
+			existingCustomer.setCustomer_name(customer.getCustomer_name());
+			existingCustomer.setOrders(customer.getOrders());
+		
 			return custrepo.save(existingCustomer);
 		}
 		return null;

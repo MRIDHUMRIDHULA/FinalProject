@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +33,11 @@ public class CatalogController {
 	@PostMapping("/createplan")
 	public Catalog createPlan(@RequestBody Catalog ctl) {
 		return ctlservice.createPlan(ctl);
+	}
+	
+	@GetMapping("/{id}")
+	public Catalog getPlanById(@PathVariable Integer id) {
+		return ctlservice.getPlanById(id);
 	}
 	
 	@PostMapping("/{id}")

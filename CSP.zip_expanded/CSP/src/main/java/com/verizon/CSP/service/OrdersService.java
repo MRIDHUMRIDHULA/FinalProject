@@ -22,6 +22,11 @@ private final OrdersRepository ordrepo;
 		return ordrepo.findAll();
 	}
 	
+	public Orders getOrderById(Integer order_id) {
+		return ordrepo.findById(order_id).orElse(null);
+		
+	}
+	
 	public Orders createOrders(Orders orders)
 	{
 		return ordrepo.save(orders);
@@ -31,7 +36,7 @@ private final OrdersRepository ordrepo;
 		Orders existingOrders = ordrepo.findById(id).orElse(null);
 		if (existingOrders != null) {
 			existingOrders.setOrder_id(orders.getOrder_id());
-			existingOrders.setPlan_id(orders.getPlan_id());
+			existingOrders.setCatalog(orders.getCatalog());
 			return ordrepo.save(existingOrders);
 		}
 		return null;

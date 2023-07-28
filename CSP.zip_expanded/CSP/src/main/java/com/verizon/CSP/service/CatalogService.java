@@ -24,6 +24,10 @@ public class CatalogService{
 		return ctlrepo.findAll();
 	}
 	
+	public Catalog getPlanById(Integer plan_id) {
+		return ctlrepo.findById(plan_id).orElse(null);
+	}
+	
 	public Catalog createPlan(Catalog ctl) {
 		return ctlrepo.save(ctl);
 	}

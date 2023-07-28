@@ -2,11 +2,13 @@ package com.verizon.CSP.controller;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.verizon.CSP.model.Orders;
 import com.verizon.CSP.service.OrdersService;
@@ -23,15 +25,20 @@ private final OrdersService ordservice;
 		this.ordservice=ordservice;
 	}
 
-	@RequestMapping("/allord")
+	@RequestMapping("/allorder")
 	public List<Orders> getAllOrders() {
 		return ordservice.getAllOrders();
 	}
 
-	@PostMapping("/create")
+	@PostMapping("/createorder")
 	public Orders createOrders(@RequestBody Orders ord)
 	{
 		return ordservice.createOrders(ord);
+	}
+	
+	@GetMapping("/{id}")
+	public Orders getOrderById(@PathVariable Integer id) {
+		return ordservice.getOrderById(id);
 	}
 
 	@PostMapping("/{id}")

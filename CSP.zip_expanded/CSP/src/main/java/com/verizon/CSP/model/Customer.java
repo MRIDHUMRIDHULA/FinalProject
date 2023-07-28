@@ -3,47 +3,48 @@ package com.verizon.CSP.model;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Customer {
 	
 	@Id
-	@Column(name="CustomerId")
-	private int cust_id;
-	@Column(name="CustomerName")
-	private String cust_name;
-	private int order_id;
+	private int customer_id;
+	private String customer_name;
+	@ManyToOne
+	@JoinColumn(name="order_id")
+	private Orders orders;
 	
 	public Customer() {
 		super();
 	}
-	
-	public int getCust_id() {
-		return cust_id;
+
+	public int getCustomer_id() {
+		return customer_id;
+	}
+
+	public void setCustomer_id(int customer_id) {
+		this.customer_id = customer_id;
+	}
+
+	public String getCustomer_name() {
+		return customer_name;
+	}
+
+	public void setCustomer_name(String customer_name) {
+		this.customer_name = customer_name;
+	}
+
+	public Orders getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Orders orders) {
+		this.orders = orders;
 	}
 	
-	public void setCust_id(int cust_id) {
-		this.cust_id = cust_id;
-	}
-	
-	public String getCust_name() {
-		return cust_name;
-	}
-	
-	public void setCust_name(String cust_name) {
-		this.cust_name = cust_name;
-	}
-	
-	public int getOrder_id() {
-		return order_id;
-	}
-	
-	public void setOrder_id(int order_id) {
-		this.order_id = order_id;
-	}
-	
-	
-	
+
 	
 
 }

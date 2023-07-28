@@ -9,7 +9,7 @@ public class Catalog {
 	@Id
 	private int plan_id;
 	private String plan;
-	private String description;
+    private String description;
 	private int price;
 	private String duration;
 	
@@ -34,14 +34,6 @@ public class Catalog {
 		this.plan = plan;
 	}
 	
-	public String getDescription() {
-		return description;
-	}
-	
-	public void setDescription(String description) {
-		this.description = description;
-	}
-	
 	public int getPrice() {
 		return price;
 	}
@@ -58,7 +50,13 @@ public class Catalog {
 		this.duration = duration;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
 	
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	
 	
 
